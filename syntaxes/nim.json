@@ -1479,8 +1479,20 @@
     "custom_literal": {
       "patterns": [
         {
-          "match": "-?(\\b(\\d[_\\d]*)(\\.[_\\d]+)?')(?!((([iIuU](8|16|32|64))|[uU][^a-zA-Z0-9])|([fF](32|64|128)|[fFdD][^a-zA-Z0-9])))([a-zA-Z]\\w*)",
-          "name": "constant.numeric.custom.lit.nim"
+          "match": "-?\\b0[xX]\\h[_\\h]*'([fF](32|64|128)|[fFdD])",
+          "name": "constant.numeric.float.hexadecimal.nim"
+        },
+        {
+          "match": "-?\\b0o[0-7][_0-7]*'([fF](32|64|128)|[fFdD])",
+          "name": "constant.numeric.float.octal.nim"
+        },
+        {
+          "match": "-?\\b0(b|B)[01][_01]*'([fF](32|64|128)|[fFdD])",
+          "name": "constant.numeric.float.binary.nim"
+        },
+        {
+          "match": "-?\\b(?<![^\\.]\\.)(((\\d[_\\d]*)(\\.(\\d[_\\d]*))?'([fF](32|64|128)|[fFdD]))|((\\d[_\\d]*)(\\.(\\d[_\\d]*))?e(-)?(\\d[_\\d]*)'([fF](32|64|128)|[fFdD]))|((\\d[_\\d]*)(\\.(\\d[_\\d]*))?e(-)?(\\d[_\\d]*)(?![a-zA-Z\\.]))|((\\d[_\\d]*)(\\.(\\d[_\\d]*))))\\b",
+          "name": "constant.numeric.float.decimal.nim"
         }
       ]
     },
